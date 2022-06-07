@@ -1,0 +1,12 @@
+<%- include('partials/header')  %> 
+
+<h1>De som van alle getallen is:</h1>
+<h1 id="Gem"><%- som %> </h1>
+aantal getallen: <%- data.length %> 
+<form action="/addGetal" method="POST">
+    getal: <input type="text" name="getal" required>
+    <br>
+    <input type="submit" value="Toevoegen">
+</form>
+
+<%- include('partials/footer')  %> 

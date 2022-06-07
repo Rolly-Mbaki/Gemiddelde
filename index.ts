@@ -1,4 +1,6 @@
-const express = require("express");
+import express from "express"
+import ejs from "ejs"
+import mongoose from "mongoose"
 const app = express();
 
 app.use(express.json({ limit: "1mb" }));
@@ -13,11 +15,42 @@ app.use('/js', express.static(__dirname + 'public/js'))
 app.set('views', './views')
 app.set("view engine", "ejs")
 
-app.get('/',(req: any,res: any)=>{
+let gem:number = 0;
+
+let date:Date = new Date()
+let som:number = 0
+interface Data {
+    getal:number,
+    datum:Date
+}
+
+let data:Data[] = []
+app.get('/',(req,res)=>{
+    res.render('index',{data:data,som:som})
+})
+
+
+app.get('/addGetal',(req,res)=>{
     res.render('index')
 })
 
-app.set('port', (process.env.PORT || 5000))
+app.post('/addGetal',(req,res)=>{
+    if (!isNaN(req.body.getal)) {
+        data.push({
+            getal: req.body.getal,
+            datum: date
+        })
+        res.redirect('/')
+    }
+    else{
+        res.render('error')
+    }
+})
+
+// for (let i = 0; i < data.length; i++) {
+//     som+=data[i].getal
+// }
+app.set('port', (process.env.PORT || 8000))
 app.listen(app.get("port"), () => {
   console.log(`Web application started at http://localhost:${app.get("port")}`);
 });
