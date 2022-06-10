@@ -112,6 +112,18 @@ tr:nth-child(odd){
     text-decoration: none;
 }
 
+.zoeken{
+    text-align: center;
+}
+
+.zoek-knop{
+    border: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
 @media only screen and (min-width: 800px) {
     #table-scroll{
         width: 750px;

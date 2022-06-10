@@ -37,6 +37,18 @@ app.get('/error',(req,res)=>{
     res.render('error')
 })
 
+app.get('/logs/:user',(req,res)=>{
+    let user:string = req.params.user
+
+    let userLogs: Data[] = []
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].naam == user) {
+            userLogs.push(data[i])
+        }
+    }
+    res.render('userlogs',{userlogs:userLogs});
+})
+
 app.post('/addGetal',(req,res)=>{
     if (req.body.naam == '') {
         req.body.naam = 'unknown'
@@ -86,6 +98,7 @@ app.post('/addGetal',(req,res)=>{
 // for (let i = 0; i < data.length; i++) {
 //     som+=data[i].getal
 // }
+
 app.set('port', (process.env.PORT || 8000))
 app.listen(app.get("port"), () => {
   console.log(`Web application started at http://localhost:${app.get("port")}`);
