@@ -1,22 +1,29 @@
 <%- include('partials/header')  %> 
 
-<h1>De som van alle getallen is:</h1>
-<h1 id="Gem"><%- gem %> </h1>
-aantal getallen: <%- data.length %> 
-<form action="/addGetal" method="POST">
-    getal: <input type="text" name="getal" required>
-    <br>
-    <input type="submit" value="Toevoegen">
-</form>
+<div id="main">
+    <h1>De som van alle getallen is:</h1>
+    <h1 id="Gem"><%- som %> </h1>
+    aantal getallen: <%- data.length %> 
+    <form action="/addGetal" method="POST">
+        getal: <input type="text" name="getal" autocomplete="off" required>
+        <br>
+        Naam: <input type="text" name="naam" autocomplete="off" required>
+        <br>
+        <input type="submit" value="Toevoegen">
+    </form>
+</div>
+
 <div id="logs">
     <h1>Logs</h1>
     <div id="table-scroll">
         <table>
             <tbody>
-                <th>Toegevoegd getal</th>
+                <th>Toegevoegd door</th>
+                <th>Getal</th>
                 <th>Datum</th>
                 <% for (let log of data){ %> 
                 <tr>
+                    <td><%- log.naam %> </td>
                      <td><%- log.getal %> </td>
                      <td><%- log.datum %> </td>
                 </tr>

@@ -20,26 +20,28 @@ let gem:number = 0;
 let som:number = 0
 interface Data {
     getal:number,
-    datum:Date
+    datum:Date,
+    naam:string
 }
 
 let data:Data[] = []
 app.get('/',(req,res)=>{
-    res.render('index',{data:data,gem:gem})
+    res.render('index',{data:data,som:som})
 })
 
 app.post('/addGetal',(req,res)=>{
     if (!isNaN(req.body.getal)) {
         data.push({
             getal: parseFloat(req.body.getal),
-            datum: new Date()
+            datum: new Date(),
+            naam: req.body.naam
         })
         console.log(data)
         som = 0
         for (let i = 0; i < data.length; i++) {
             som+=data[i].getal
         }
-        gem=som/data.length
+        // gem=som/data.length
         res.redirect('/')
     }
     else{
