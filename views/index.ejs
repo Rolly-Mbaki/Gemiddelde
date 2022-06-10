@@ -2,14 +2,14 @@
 
 <div id="main">
     <h1>De som van alle getallen is:</h1>
-    <h1 id="Gem"><%- som %> </h1>
-    aantal getallen: <%- data.length %> 
+    <h1 id="som"><%- som %> </h1>
+    <h2>aantal getallen: <%- data.length %></h2> 
     <form action="/addGetal" method="POST">
-        getal: <input type="text" name="getal" autocomplete="off" required>
+        <label class="label">Getal:</label> <br><input class="invullen" type="text" name="getal" autocomplete="off" required>
         <br>
-        Naam: <input type="text" name="naam" autocomplete="off" required>
+        <label class="label">Naam:</label> <br><input class="invullen" type="text" name="naam" autocomplete="off">
         <br>
-        <input type="submit" value="Toevoegen">
+        <input type="submit" value="+" class="button">
     </form>
 </div>
 

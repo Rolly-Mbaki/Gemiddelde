@@ -1,5 +1,5 @@
 import express from "express"
-import ejs from "ejs"
+import ejs, { render } from "ejs"
 import mongoose from "mongoose"
 const app = express();
 
@@ -29,8 +29,18 @@ app.get('/',(req,res)=>{
     res.render('index',{data:data,som:som})
 })
 
+app.get('/error',(req,res)=>{
+    res.render('error')
+})
+
 app.post('/addGetal',(req,res)=>{
-    if (!isNaN(req.body.getal)) {
+    if (req.body.naam == '') {
+        req.body.naam = 'unknown'
+    }
+    if (parseFloat(req.body.getal)>1000) {
+        res.redirect('error')
+    }
+    else if (!isNaN(req.body.getal)) {
         data.push({
             getal: parseFloat(req.body.getal),
             datum: new Date(),
@@ -45,7 +55,7 @@ app.post('/addGetal',(req,res)=>{
         res.redirect('/')
     }
     else{
-        res.render('error')
+        res.redirect('error')
     }
 })
 // interface ArrGet {
