@@ -1,0 +1,24 @@
+<%- include('partials/header')  %> 
+
+<div id="logs">
+    <h1>Logs</h1>
+    <div id="table-scroll">
+        <table>
+            <tbody>
+                <th>Toegevoegd door</th>
+                <th>Getal</th>
+                <th>Datum</th>
+                <% for (let log of data){ %> 
+                <tr>
+                    <td><%- log.naam %> </td>
+                     <td><%- log.getal %> </td>
+                     <td><%- log.datum %> </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p class="druk-hier">Klik <a href="/">hier</a> om terug naar de home pagina te gaan</p>
+
+<%- include('partials/footer')  %> 

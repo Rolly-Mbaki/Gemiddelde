@@ -29,6 +29,10 @@ app.get('/',(req,res)=>{
     res.render('index',{data:data,som:som})
 })
 
+app.get('/logs',(req,res)=>{
+    res.render('logs',{data:data})
+})
+
 app.get('/error',(req,res)=>{
     res.render('error')
 })
@@ -37,7 +41,7 @@ app.post('/addGetal',(req,res)=>{
     if (req.body.naam == '') {
         req.body.naam = 'unknown'
     }
-    if (parseFloat(req.body.getal)>1000) {
+    if (parseFloat(req.body.getal)>10000 || parseFloat(req.body.getal) < 0) {
         res.redirect('error')
     }
     else if (!isNaN(req.body.getal)) {

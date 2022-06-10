@@ -5,32 +5,13 @@
     <h1 id="som"><%- som %> </h1>
     <h2>aantal getallen: <%- data.length %></h2> 
     <form action="/addGetal" method="POST">
-        <label class="label">Getal:</label> <br><input class="invullen" type="text" name="getal" autocomplete="off" required>
+        <label class="label">Getal:</label> <br><input class="invullen" type="text" name="getal" autocomplete="off" placeholder="Geef je getal" required>
         <br>
-        <label class="label">Naam:</label> <br><input class="invullen" type="text" name="naam" autocomplete="off">
+        <label class="label">Naam:</label> <br><input class="invullen" type="text" name="naam" autocomplete="off" placeholder="Typ je naam">
         <br>
         <input type="submit" value="+" class="button">
     </form>
 </div>
-
-<div id="logs">
-    <h1>Logs</h1>
-    <div id="table-scroll">
-        <table>
-            <tbody>
-                <th>Toegevoegd door</th>
-                <th>Getal</th>
-                <th>Datum</th>
-                <% for (let log of data){ %> 
-                <tr>
-                    <td><%- log.naam %> </td>
-                     <td><%- log.getal %> </td>
-                     <td><%- log.datum %> </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
-    </div>
-</div>
+<p class="druk-hier">Klik <a href="/logs">hier</a> om naar de logs te kijken</p>
 
 <%- include('partials/footer')  %> 

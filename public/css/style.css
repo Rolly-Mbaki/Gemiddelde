@@ -19,7 +19,7 @@ body, html{
     justify-content: center;
     align-items: center;
     height: 50px;
-    padding: 5px;;
+    padding: 5px;
     text-align: center;
     background-color: rgb(21, 21, 21);
     gap: 50px;
@@ -30,6 +30,7 @@ body, html{
     align-items: center;
     justify-content: center;
     height: 50px;
+    padding: 5px;
     text-align: center;
     background-color: rgb(21, 21, 21);
 }
@@ -40,9 +41,10 @@ body, html{
 }
 
 #table-scroll{
-    height:150px;
+    height: 600px;
     overflow:auto; 
-    width: 750px;
+    width: 350px;
+    margin: auto;
 }
 
 .titletext{
@@ -52,6 +54,11 @@ body, html{
 
 #main{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
 }
 
 .invullen{
@@ -64,7 +71,7 @@ body, html{
 }
 
 #som{
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 .button{
@@ -72,4 +79,48 @@ body, html{
     border-radius: 25px;
     padding: 0px 2rem;
     font-size: 2.8rem;
+    margin-top: 20px;
 }
+
+#logs h1{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+td,th{
+    padding: 5px;
+}
+th{
+    background-color: rgb(21, 21, 21);
+}
+
+tr:nth-child(odd){
+    background-color: rgb(21, 21, 21);
+}
+.druk-hier{
+    text-align: center;
+}
+.druk-hier a{
+    color: rgb(29, 184, 29);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 800px) {
+    #table-scroll{
+        width: 750px;
+    }
+    #som{
+        font-size: 4rem;
+    }
+    .button:hover{
+        background-color: rgb(29, 184, 29);
+        cursor: pointer;
+    }
+  }
