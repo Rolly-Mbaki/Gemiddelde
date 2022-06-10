@@ -17,7 +17,6 @@ app.set("view engine", "ejs")
 
 let gem:number = 0;
 
-let date:Date = new Date()
 let som:number = 0
 interface Data {
     getal:number,
@@ -26,27 +25,48 @@ interface Data {
 
 let data:Data[] = []
 app.get('/',(req,res)=>{
-    res.render('index',{data:data,som:som})
-})
-
-
-app.get('/addGetal',(req,res)=>{
-    res.render('index')
+    res.render('index',{data:data,gem:gem})
 })
 
 app.post('/addGetal',(req,res)=>{
     if (!isNaN(req.body.getal)) {
         data.push({
-            getal: req.body.getal,
-            datum: date
+            getal: parseFloat(req.body.getal),
+            datum: new Date()
         })
+        console.log(data)
+        som = 0
+        for (let i = 0; i < data.length; i++) {
+            som+=data[i].getal
+        }
+        gem=som/data.length
         res.redirect('/')
     }
     else{
         res.render('error')
     }
 })
-
+// interface ArrGet {
+//     getal:number,
+//     woord:string
+// }
+// let somArr:number = 0
+// let arrayGet:ArrGet[] = [
+//     {getal:1,woord:'een'},
+//     {getal:5,woord:'vijf'},
+// ]
+// console.log(arrayGet)
+// for (let i = 0; i < arrayGet.length; i++) {
+//     somArr+=arrayGet[i].getal
+// }
+// arrayGet.push(
+//     {getal:3,woord:'drie'}
+// )
+// console.log(somArr)
+// for (let i = 0; i < arrayGet.length; i++) {
+//     somArr+=arrayGet[i].getal
+// }
+// console.log(somArr)
 // for (let i = 0; i < data.length; i++) {
 //     som+=data[i].getal
 // }
