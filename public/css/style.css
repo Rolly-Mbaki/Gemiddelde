@@ -124,6 +124,14 @@ tr:nth-child(odd){
     font-size: 12px;
 }
 
+td a {
+    text-decoration: none;
+    color: white;
+}
+#table-scroll p{
+    text-align: center;
+}
+
 @media only screen and (min-width: 800px) {
     #table-scroll{
         width: 750px;
@@ -134,5 +142,8 @@ tr:nth-child(odd){
     .button:hover{
         background-color: rgb(29, 184, 29);
         cursor: pointer;
+    }
+    td a:hover{
+        color: rgb(29, 184, 29);
     }
   }

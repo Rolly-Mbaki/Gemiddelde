@@ -3,10 +3,7 @@
 <div id="logs">
     <h1>Logs</h1>
     <div id="table-scroll">
-        <form action="/logs/" method="get" class="zoeken">
-            <input name="username" type="text" autocomplete="off" placeholder="Zoeken" class="zoek-knop" required>
-            <input type="submit" value="zoeken">
-        </form>
+        <p>klik op de gebruikersnaam om de persoonelijke logs te bekijken</p>
         <table>
             <tbody>
                 <th>Toegevoegd door</th>
@@ -14,9 +11,9 @@
                 <th>Datum</th>
                 <% for (let log of data){ %> 
                 <tr>
-                    <td><%- log.naam %> </td>
-                     <td><%- log.getal %> </td>
-                     <td><%- log.datum %> </td>
+                    <td><a href="/logs/<%- log.naam %>"><%- log.naam %></a></td>
+                     <td><%- log.getal %></td>
+                     <td><%- log.datum %></td>
                 </tr>
                 <% } %>
             </tbody>

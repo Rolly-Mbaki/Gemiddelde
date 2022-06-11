@@ -30,7 +30,13 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/logs',(req,res)=>{
-    res.render('logs',{data:data})
+    let ordered:Data[] = [...data]
+    ordered.sort((a,b)=>{
+        if(a.datum < b.datum ) return 1;
+        if(a.datum > b.datum ) return -1;
+        return 0;
+    })
+    res.render('logs',{data:ordered})
 })
 
 app.get('/error',(req,res)=>{
@@ -42,11 +48,14 @@ app.get('/logs/:user',(req,res)=>{
 
     let userLogs: Data[] = []
     for (let i = 0; i < data.length; i++) {
-        if (data[i].naam == user) {
+        if (data[i].naam.toLowerCase() == user.toLowerCase()) {
             userLogs.push(data[i])
         }
     }
-    res.render('userlogs',{userlogs:userLogs});
+    if (userLogs.length == 0) {
+        res.redirect('/error')
+    }
+    else res.render('userlogs',{userlogs:userLogs,user:user});
 })
 
 app.post('/addGetal',(req,res)=>{
