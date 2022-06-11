@@ -41,7 +41,7 @@ body, html{
 }
 
 #table-scroll{
-    height: 600px;
+    height: 400px;
     overflow:auto; 
     width: 350px;
     margin: auto;
@@ -148,6 +148,7 @@ td a {
 @media only screen and (min-width: 800px) {
     #table-scroll{
         width: 750px;
+        height: 600px;
     }
     #som{
         font-size: 4rem;
