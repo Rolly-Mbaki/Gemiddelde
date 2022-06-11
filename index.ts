@@ -30,13 +30,12 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/logs',(req,res)=>{
-    let ordered:Data[] = [...data]
-    ordered.sort((a,b)=>{
+    data.sort((a,b)=>{
         if(a.datum < b.datum ) return 1;
         if(a.datum > b.datum ) return -1;
         return 0;
     })
-    res.render('logs',{data:ordered})
+    res.render('logs',{data:data})
 })
 
 app.get('/error',(req,res)=>{
@@ -56,6 +55,10 @@ app.get('/logs/:user',(req,res)=>{
         res.redirect('/error')
     }
     else res.render('userlogs',{userlogs:userLogs,user:user});
+})
+
+app.get('*',(req,res)=>{
+    res.status(404).render('error',{url: req.url})
 })
 
 app.post('/addGetal',(req,res)=>{

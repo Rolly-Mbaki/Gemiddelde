@@ -1,2 +1,10 @@
-Fout u heeft geen cijfer meegegeven
-<a href="/">Ga terug naar main pagina</a>
+<%- include('partials/header')  %> 
+<div id="error">
+    <h2>Redenen waarom je op deze error pagina bent terechtgekomen:</h2>
+    <ul>
+        <li>Je hebt geen getal meegegeven</li>
+        <li>Je hebt een link ingetypt dat niet bestaat => <%- url %> </li>
+    </ul>
+</div>
+<p class="druk-hier">Klik <a href="/">hier</a> om terug naar de home pagina te gaan</p>
+<%- include('partials/footer')  %> 

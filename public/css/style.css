@@ -132,6 +132,19 @@ td a {
     text-align: center;
 }
 
+#error{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#error ul{
+    list-style-type: none;
+    padding: 0;
+}
+
 @media only screen and (min-width: 800px) {
     #table-scroll{
         width: 750px;
