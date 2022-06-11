@@ -1,5 +1,9 @@
 <%- include('partials/header')  %> 
-
+<% let som = 0%> 
+<% for (let log of userlogs){ %> 
+    <% som+=log.getal  %> 
+<% } %>
+<p class="druk-hier">som van alle getallen die <%- user %> heeft ingegven is <%- som %> </p>
 <div id="logs">
     <h1>Logs van <%- user %> </h1> 
     <div id="table-scroll">
