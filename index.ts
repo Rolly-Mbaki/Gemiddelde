@@ -58,7 +58,7 @@ app.get('/logs/:user',(req,res)=>{
 })
 
 app.get('*',(req,res)=>{
-    res.status(404).render('error',{url: req.url})
+    res.status(404).render('error')
 })
 
 app.post('/addGetal',(req,res)=>{
@@ -74,7 +74,7 @@ app.post('/addGetal',(req,res)=>{
             datum: new Date(),
             naam: req.body.naam
         })
-        console.log(data)
+        // console.log(data)
         som = 0
         for (let i = 0; i < data.length; i++) {
             som+=data[i].getal
