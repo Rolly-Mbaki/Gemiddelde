@@ -1,6 +1,9 @@
 import express from "express"
 import ejs, { render } from "ejs"
 import mongoose from "mongoose"
+// const express = require('express')
+// const ejs = require('ejs')
+// const mongoose = require('mongoose')
 const app = express();
 
 app.use(express.json({ limit: "1mb" }));
