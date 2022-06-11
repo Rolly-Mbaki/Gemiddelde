@@ -1,9 +1,9 @@
-import express from "express"
-import ejs, { render } from "ejs"
-import mongoose from "mongoose"
-// const express = require('express')
-// const ejs = require('ejs')
-// const mongoose = require('mongoose')
+// import express from "express"
+// import ejs, { render } from "ejs"
+// import mongoose from "mongoose"
+const express = require('express')
+const ejs = require('ejs')
+const mongoose = require('mongoose')
 const app = express();
 
 app.use(express.json({ limit: "1mb" }));
@@ -18,16 +18,11 @@ app.use('/js', express.static(__dirname + 'public/js'))
 app.set('views', './views')
 app.set("view engine", "ejs")
 
-let gem:number = 0;
+let gem = 0;
 
-let som:number = 0
-interface Data {
-    getal:number,
-    datum:Date,
-    naam:string
-}
+let som = 0
 
-let data:Data[] = []
+let data = []
 app.get('/',(req,res)=>{
     res.render('index',{data:data,som:som})
 })
@@ -46,9 +41,9 @@ app.get('/error',(req,res)=>{
 })
 
 app.get('/logs/:user',(req,res)=>{
-    let user:string = req.params.user
+    let user = req.params.user
 
-    let userLogs: Data[] = []
+    let userLogs = []
     for (let i = 0; i < data.length; i++) {
         if (data[i].naam.toLowerCase() == user.toLowerCase()) {
             userLogs.push(data[i])
